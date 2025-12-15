@@ -1,2 +1,2 @@
-# PersonalSite
-Alex's Personal Website
+# Alex's Personal Site
+A super simple personal website.
