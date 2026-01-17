@@ -9,3 +9,5 @@ Before I impliment CSS and deploy I need to:
 - link all podcast html files to podcast/index.html
 
 - establish skeleton of a podcast file
+
+-test I tooted
