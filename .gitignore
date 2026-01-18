@@ -1,3 +1,19 @@
-todo.txt
+# macOS junk
 .DS_Store
-audio/
+**/.DS_Store
+
+# Editor / OS noise
+*.swp
+*.tmp
+
+# Local notes
+todo.txt
+
+# Audio masters / raw files
+*.wav
+/raw-audio/
+/masters/
+
+# Optional: build output (only if you add a generator later)
+# /dist
+# /build
