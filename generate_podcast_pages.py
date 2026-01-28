@@ -1,8 +1,7 @@
-import os
 from pathlib import Path
+from datetime import date, timedelta
 
 ROOT = Path(__file__).parent
-AUDIO_DIR = ROOT / "audio"
 PODCAST_DIR = ROOT / "podcasts"
 
 TEMPLATE = """<!DOCTYPE html>
@@ -11,9 +10,9 @@ TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>{title} | Alex Arias</title>
+    <title>Episode {number} | Alex Arias</title>
 </head>
-<body id="{body_id}">
+<body id="ep-{number}">
     <header id="masthead">
         <h1>
             <a href="/" title="Alex Arias">Alex Arias</a>
@@ -26,56 +25,80 @@ TEMPLATE = """<!DOCTYPE html>
             </div>
 
             <div>
-                <h2>{title}</h2>
-                <small>recorded ????-??-??</small>
-            </div>
+                <h2>Episode {number} — TODO TITLE</h2>
+                <small>recorded {recorded_date}</small>
 
-            <audio src="../audio/{audio_filename}" preload="none" controls></audio>
+                <iframe
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/episode/TODO-EPISODE-ID"
+                    width="100%"
+                    height="152"
+                    frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            </div>
         </header>
 
-        <p>placeholder for description or something</p>
+        <p>This my episode {number} podcast</p>
     </main>
 </body>
 </html>
 """
 
-def slugify(s: str) -> str:
-    """Very simple slug/id generator."""
-    return "".join(c.lower() if c.isalnum() else "-" for c in s).strip("-")
+def write_episode_file(number: str, recorded_date: date):
+    """
+    number: string like "0.1", "0.5", "1", "124"
+    recorded_date: datetime.date object
+    """
+    recorded_str = recorded_date.isoformat()  # YYYY-MM-DD
+    year_month = recorded_date.strftime("%Y-%m")  # YYYY-MM
+
+    # filename: YYYY-MM-<episode-number>.html
+    filename = f"{year_month}-{number}.html"
+    html_path = PODCAST_DIR / filename
+
+    # don't overwrite existing files
+    if html_path.exists():
+        print(f"Skipping existing file: {html_path.relative_to(ROOT)}")
+        return
+
+    html = TEMPLATE.format(
+        number=number,
+        recorded_date=recorded_str,
+    )
+
+    html_path.write_text(html, encoding="utf-8")
+    print(f"Created {html_path.relative_to(ROOT)}")
 
 def main():
     PODCAST_DIR.mkdir(exist_ok=True)
 
-    audio_files = sorted(
-        f for f in AUDIO_DIR.iterdir()
-        if f.is_file() and f.suffix.lower() in {".mp3", ".m4a"}
-    )
+    # ---- Pre-series episodes with Cesar: 0.1–0.5 ----
+    # Dates given by you (MM/DD/YYYY):
+    # ep 0.1 10/25/2020
+    # ep 0.2 12/10/2020
+    # ep 0.3 12/10/2020
+    # ep 0.4 1/10/2021
+    # ep 0.5 2/10/2023 (after ep 1, but you want it numbered 0.5)
+    pre_episodes = [
+        ("0.1", date(2020, 10, 25)),
+        ("0.2", date(2020, 12, 10)),
+        ("0.3", date(2020, 12, 10)),
+        ("0.4", date(2021, 1, 10)),
+        ("0.5", date(2023, 2, 10)),
+    ]
 
-    if not audio_files:
-        print("No audio files found in ./audio")
-        return
+    for number, recorded_date in pre_episodes:
+        write_episode_file(number, recorded_date)
 
-    for audio in audio_files:
-        base = audio.stem  # e.g. "0" from "0.mp3"
-        html_name = f"{base}.html"
-        html_path = PODCAST_DIR / html_name
-
-        if html_path.exists():
-            print(f"Skipping existing file: {html_path}")
-            continue
-
-        # For now, use a generic title you can edit later
-        title = f"Episode {base}"
-        body_id = f"ep-{slugify(base)}"
-
-        html_content = TEMPLATE.format(
-            title=title,
-            body_id=body_id,
-            audio_filename=audio.name,
-        )
-
-        html_path.write_text(html_content, encoding="utf-8")
-        print(f"Created {html_path}")
+    # ---- Main run: episodes 1–124, one per day ----
+    # ep 1  recorded 2023-02-01
+    # ep 124 recorded 2023-06-04
+    start_date = date(2023, 2, 1)  # episode 1
+    for n in range(1, 125):  # 1 through 124 inclusive
+        recorded_date = start_date + timedelta(days=n - 1)
+        write_episode_file(str(n), recorded_date)
 
 if __name__ == "__main__":
     main()
