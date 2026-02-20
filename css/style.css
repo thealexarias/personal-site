@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');  
+
 header a:link, a:visited, a:active {
     color: #000000;
     text-decoration: none;
@@ -17,7 +19,7 @@ body {
     max-width: 40em;
     margin: 0 auto;
     padding: 5px;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Atkinson Hyperlegible Mono', monospace;
     font-style: normal;
     font-size: 20px;
     line-height: 30px;
