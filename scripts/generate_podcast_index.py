@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 from datetime import datetime
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).parent.parent
 PODCAST_DIR = ROOT / "podcasts"
 INDEX_FILE = PODCAST_DIR / "index.html"
 

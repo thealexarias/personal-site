@@ -1,7 +1,7 @@
 from pathlib import Path
 from datetime import date
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).parent.parent
 PODCAST_DIR = ROOT / "podcasts"
 
 TEMPLATE = """<!DOCTYPE html>
