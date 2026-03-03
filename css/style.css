@@ -6,7 +6,7 @@
 
 :root {
   /* Colors */
-  --color-bg: #0b0c0f;
+  --color-bg: #0f1219;
   --color-text: #e0e0e0;
   --color-muted: #6b7280;
   --color-accent: #6fa3e8;
@@ -140,6 +140,7 @@ a:hover {
 
 main {
   padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
 }
 
 section {
@@ -153,6 +154,14 @@ section:last-child {
 /* Section headings with "see all" links */
 section h2 small a {
   margin-left: var(--space-sm);
+}
+
+#aboutme h2 {
+  margin-top: var(--space-xl);
+}
+
+#aboutme h2:first-child {
+  margin-top: 0;
 }
 
 /* ================================
