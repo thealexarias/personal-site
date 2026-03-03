@@ -139,7 +139,7 @@ a:hover {
    ================================ */
 
 main {
-  padding-top: var(--space-lg);
+  padding-top: var(--space-md);
   padding-bottom: var(--space-xl);
 }
 
