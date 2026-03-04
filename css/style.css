@@ -7,8 +7,8 @@
 :root {
   /* Colors */
   --color-bg: #0f1219;
-  --color-text: #e0e0e0;
-  --color-muted: #6b7280;
+  --color-text: #e5e9f0;
+  --color-muted: #9CA3Af;
   --color-accent: #6fa3e8;
   --color-border: rgba(255, 255, 255, 0.1);
 
@@ -175,6 +175,56 @@ section h2 small a {
 
 .stack > * + * {
   margin-top: var(--space-md);
+}
+
+/* ================================
+   TEMPLATE A: CATALOG / INDEX
+   ================================ */
+
+.catalog {
+  list-style: none;
+}
+
+.catalog .updated {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.catalog li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  column-gap: var(--space-lg);
+  padding: var(--space-sm) 0;
+}
+
+.catalog .desc {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  text-align: right;
+}
+
+/* ================================
+   TEMPLATE B: PROSE
+   ================================ */
+
+.prose .updated {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.prose h2 {
+  margin-top: var(--space-xl);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  margin-top: var(--space-lg);
 }
 
 /* ================================
