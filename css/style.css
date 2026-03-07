@@ -192,17 +192,24 @@ section h2 small a {
 }
 
 .catalog li {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: baseline;
-  column-gap: var(--space-lg);
   padding: var(--space-sm) 0;
 }
 
+.catalog li::after {
+  content: '';
+  order: 1;
+  flex: 1;
+  border-bottom: 3px dotted var(--color-muted);
+  margin: 0 0.5rem 0.15em;
+}
+
 .catalog .desc {
+  order: 2;
+  white-space: nowrap;
   color: var(--color-muted);
   font-size: var(--text-sm);
-  text-align: right;
 }
 
 /* ================================
