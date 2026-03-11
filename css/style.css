@@ -5,12 +5,12 @@
    ================================ */
 
 :root {
-  /* Colors */
-  --color-bg: #0f1219;
-  --color-text: #e5e9f0;
-  --color-muted: #9CA3Af;
-  --color-accent: #6fa3e8;
-  --color-border: rgba(255, 255, 255, 0.1);
+  /* Colors — Ghostty Default Dark */
+  --color-bg: #282c34;
+  --color-text: #eaeaea;
+  --color-muted: #c4c8c6;
+  --color-accent: #7aa6da;
+  --color-border: rgba(234, 234, 234, 0.1);
 
   /* Type scale */
   --text-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.85rem);
@@ -239,6 +239,6 @@ section h2 small a {
    ================================ */
 
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
+  background-color: #ffffff;
+  color: #282c34;
 }
