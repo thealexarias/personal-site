@@ -259,6 +259,17 @@ section h2 small a {
 }
 
 /* ================================
+   FOOTER
+   ================================ */
+
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+/* ================================
    SELECTION
    ================================ */
 
