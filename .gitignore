@@ -3,6 +3,7 @@
 **/.DS_Store
 
 # Editor / OS noise
+.vscode/
 *.swp
 *.tmp
 
