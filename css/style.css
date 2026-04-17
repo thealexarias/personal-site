@@ -199,6 +199,15 @@ section h2 small a {
   padding: var(--space-sm) 0;
 }
 
+.catalog li > a {
+  flex: 999 1 0;
+  min-width: 0;
+  max-width: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .catalog li::after {
   content: '';
   order: 1;
@@ -256,6 +265,15 @@ section h2 small a {
 
 .prose h3 {
   margin-top: var(--space-lg);
+}
+
+/* ================================
+   AUDIO
+   ================================ */
+
+audio {
+  width: 100%;
+  margin: var(--space-md) 0;
 }
 
 /* ================================
