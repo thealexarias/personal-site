@@ -26,6 +26,7 @@ FOOTER_HTML = """    <footer>
                 <svg aria-hidden="true"><use href="/icons.svg#x"/></svg>
             </a>
         </nav>
+        <p><a href="https://ko-fi.com/the_alexarias">Support</a></p>
         <p>&copy; 2026 Alex Arias. All rights reserved.</p>
     </footer>
 """
