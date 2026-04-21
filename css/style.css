@@ -287,6 +287,31 @@ footer {
   font-size: var(--text-sm);
 }
 
+footer .socials {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+footer .socials a {
+  color: var(--color-accent);
+  display: inline-flex;
+  line-height: 1;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+footer .socials a:hover {
+  border-bottom-color: var(--color-accent);
+  text-decoration: none;
+}
+
+footer .socials svg {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
 /* ================================
    SELECTION
    ================================ */
