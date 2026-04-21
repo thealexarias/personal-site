@@ -31,6 +31,7 @@ EPISODE_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>Episode {number} | Alex Arias</title>
 </head>
 <body id="ep-{body_id}">
