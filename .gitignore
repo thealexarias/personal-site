@@ -9,10 +9,14 @@
 
 # Local notes
 readme.todo
+copy-paste-for-claude.txt
+hi.txt
 
 # Audio masters / raw files
 *.wav
 /raw-audio/
 /masters/
 
-copy-paste-for-claude.txt
+# Python cache
+__pycache__/
+*.pyc
