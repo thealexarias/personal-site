@@ -13,6 +13,13 @@ readme.todo
 # Local templates (starter files for new posts)
 templates/
 
+# Markdown drafts (source, private)
+drafts/
+
+# Obsidian vault config
+.obsidian/
+**/.obsidian/
+
 # Audio masters / raw files
 *.wav
 /raw-audio/
