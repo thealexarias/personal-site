@@ -23,8 +23,6 @@ PODCAST_DIR = ROOT / "podcasts"
 JSON_PATH = PODCAST_DIR / "episodes.json"
 INDEX_PATH = PODCAST_DIR / "index.html"
 
-SHOW_URL = "https://open.spotify.com/show/0G3oDMRDDe5AhvKJyZx9tG"
-
 EPISODE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +49,6 @@ EPISODE_TEMPLATE = """<!DOCTYPE html>
                 <small>recorded {date}</small>
 
                 <audio controls preload="none" src="{audio_url}"></audio>
-                <p>Also on <a href="{show_url}">Spotify</a>.</p>
             </div>
         </header>
 
@@ -90,7 +87,6 @@ def render_episode(ep: dict) -> str:
         title=html.escape(ep["title"]),
         date=ep["date"],
         audio_url=html.escape(ep["audio_url"], quote=True),
-        show_url=SHOW_URL,
         description_html=description_to_html(ep["description"]),
     )
 
